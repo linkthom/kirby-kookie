@@ -1,6 +1,6 @@
 <?php
 
-Kirby::plugin('s21-kookie', [
+Kirby::plugin('linkthom/kookie', [
 	'options' => [
 		// Colors
 		'color' => '#000000',
