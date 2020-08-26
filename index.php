@@ -1,6 +1,6 @@
 <?php
 
-Kirby::plugin('medienbaecker/kookie', [
+Kirby::plugin('s21-kookie', [
 	'options' => [
 		// Colors
 		'color' => '#000000',
