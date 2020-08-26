@@ -10,10 +10,12 @@ Kirby::plugin('s21-kookie', [
 		'color-reject' => '#ffffff',
 		'background-color-reject' => '#777777',
 		// Content
-		'text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+		'text' => 'We are using cookies... click on Adjust to change the settings...',
+		'text-adjust' => 'The following cookies are set...',
 		'link' => 'privacy',
 		'linkText' => 'Learn more',
 		'accept' => 'Accept',
+		'adjust' => 'Adjust',
 		'reject' => 'Reject',
 	],
 	'snippets' => [
