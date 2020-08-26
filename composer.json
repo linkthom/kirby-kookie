@@ -1,5 +1,5 @@
 {
-	"name": "medienbaecker/kirby-kookie",
+	"name": "linkthom/s21-kirby-kookie",
 	"description": "Kirby Kookie",
 	"type": "kirby-plugin",
 	"license": "MIT",
@@ -7,6 +7,10 @@
 		{
 			"name": "Thomas Günther",
 			"email": "mail@medienbaecker.com"
+		},
+		{
+			"name": "Thomas Link",
+			"email": "tlink@spirit21.com"
 		}
 	],
 	"require": {
