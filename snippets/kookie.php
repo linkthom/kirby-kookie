@@ -12,18 +12,21 @@
 	<div class="kookie">
 		<form id="kookie_form" action="<?= $page->url() ?>" method="POST">
 			<div class="kookie_text">
-				<?= option('medienbaecker.kookie.text') ?>
-				<a href="<?= option('medienbaecker.kookie.link') ?>"><?= option('medienbaecker.kookie.linkText') ?></a>
+				<?= option('kookie.text') ?>
+			</div>
+			<div class="kookie_link">
+				<a href="<?= option('kookie.link') ?>"><?= option('kookie.linkText') ?></a>
 			</div>
 			<div class="kookie_buttons">
-				<button class="kookie_button_accept" type="submit" name="cookies_accept"><?= option('medienbaecker.kookie.accept') ?></button>
-				<button class="kookie_button_reject" type="submit" name="cookies_reject"><?= option('medienbaecker.kookie.reject') ?></button>
+				<button class="kookie_button_accept" type="submit" name="cookies_accept"><?= option('kookie.accept') ?></button>
+				<button class="kookie_button_reject" type="submit" name="cookies_adjust"><?= option('kookie.adjust') ?></button>
 			</div>
 		</form>
 	</div>
 
 	<script type="text/javascript">
 		var buttons = document.querySelectorAll('.kookie_buttons button');
+		var adjust = false;
 		buttons.forEach(function(button) {
 			button.addEventListener("click", function(e) {
 				if(button.getAttribute('name') == 'cookies_accept') {
@@ -43,8 +46,15 @@
 					document.querySelector('.kookie').remove();
 				}
 				else {
-					document.cookie = "kookie=false";
-					document.querySelector('.kookie').remove();
+					if (adjust){
+						document.cookie = "kookie=false";
+						document.querySelector('.kookie').remove();
+					}
+					else {
+						adjust = true;
+						document.querySelector('.kookie_text').innerHTML = "<?= option('kookie.text-adjust') ?>";
+						document.querySelector('.kookie_button_reject').innerHTML = "<?= option('kookie.reject') ?>";
+					}
 				}
 				e.preventDefault();
 			});
@@ -53,12 +63,12 @@
 
 	<style>
 		.kookie {
-			--kookie-color: <?= option('medienbaecker.kookie.color') ?>;
-			--kookie-background-color: <?= option('medienbaecker.kookie.background-color') ?>;
-			--kookie-color-accept: <?= option('medienbaecker.kookie.color-accept') ?>;
-			--kookie-background-color-accept: <?= option('medienbaecker.kookie.background-color-accept') ?>;
-			--kookie-color-reject: <?= option('medienbaecker.kookie.color-reject') ?>;
-			--kookie-background-color-reject: <?= option('medienbaecker.kookie.background-color-reject') ?>;
+			--kookie-color: <?= option('kookie.color') ?>;
+			--kookie-background-color: <?= option('kookie.background-color') ?>;
+			--kookie-color-accept: <?= option('kookie.color-accept') ?>;
+			--kookie-background-color-accept: <?= option('kookie.background-color-accept') ?>;
+			--kookie-color-reject: <?= option('kookie.color-reject') ?>;
+			--kookie-background-color-reject: <?= option('kookie.background-color-reject') ?>;
 			position: fixed;
 			bottom: 0;
 			right: 0;
